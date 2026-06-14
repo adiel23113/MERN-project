@@ -13,7 +13,9 @@ export const getUsers = async (req, res, next)=> {
             isAdmin : {$ne : true},
             $or :[
                 {name : { $regex : searchRegExp}},
-                {name : { $regex : searchRegExp}},
+                {email : { $regex : searchRegExp}},
+                {phone : { $regex : searchRegExp}},
+               
             ],
         };
 
