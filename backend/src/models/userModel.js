@@ -1,3 +1,4 @@
+
 import { Schema, model } from 'mongoose';
 import bcrypt from 'bcrypt';
 
@@ -28,7 +29,27 @@ const userSchema = new Schema({
         minlength: [3, 'the length of user password can be minimum 3 characters'],
         set: (v) => bcrypt.hashSync(v, bcrypt.genSaltSync(10)),
     },
-});
+  image: {
+        type: String,
+        default: 'public/images/users/default.png',  
+    },
+    address: {
+        type: String,
+        default: '',
+    },
+    phone: {
+        type: String,
+        default: '',
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false,   
+    },
+    isBanned: {
+        type: Boolean,
+        default: false,   
+    },
+}, { timestamps: true });  
 
 const User = model('User', userSchema);
 

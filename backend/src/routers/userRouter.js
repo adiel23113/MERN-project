@@ -1,19 +1,10 @@
 import express from "express";
-
+import { getUsers } from "../controllers/userController.js";
 const userRouter = express.Router();
 
-const users = [
-  { id: 1, name: "Adiel bhuiya" },
-  { id: 2, name: "saimor rohoman" },
-  { id: 3, name: "eyamin sami" },
-];
 
-userRouter.get("/", (req, res) => {
-  res.status(200).send({
-    message: "users were returned",
-    users: users,
-  });
-});
+userRouter.get("/",getUsers);
+
 
 
 userRouter.get("/profile", (req, res) => {

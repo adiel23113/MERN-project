@@ -6,6 +6,9 @@ export const data = {
             password : '123456',
             phone : '668766557568',
             address : 'brahmonbaria',
+            isAdmin: false,    
+            isBanned: false,
+         
         },
 
         {
@@ -13,14 +16,18 @@ export const data = {
             email : 'david@gamil.com',
             password : '354336324',
             phone : '00438060650',
-            address : 'barahmonbaria dhaka'
+            address : 'barahmonbaria dhaka',
+            isAdmin: false,  
+            isBanned: false,
         },
           {
             name : 'samir warren',
             email : 'samir@gamil.com',
             password : '479473933',
             phone : '4994649',
-            address : 'barahmonbaira '
+            address : 'barahmonbaira ',
+            isAdmin: false,   
+            isBanned: false,
 
           }
     ]

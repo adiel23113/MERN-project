@@ -3,11 +3,11 @@ import User from '../models/userModel.js';
 
 export const seedUser = async (req, res) => {
     try {
-        // আগের সব user মুছো
+        
         await User.deleteMany({});
         
-        // নতুন user add করো
-        const users = await User.insertMany(data.user);
+       
+        const users = await User.create(data.user);
         
         res.status(200).json({
             message: 'Users seeded successfully',
