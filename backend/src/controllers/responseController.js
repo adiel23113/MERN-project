@@ -10,5 +10,6 @@ export const successResponse = (res, {statusCode = 200, message = 'success', pay
     return res.status(statusCode).json({
     success: true,
     message : message,
+    payload,
     });
 };
