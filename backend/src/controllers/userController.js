@@ -1,5 +1,6 @@
 import createError from 'http-errors';
 import User from '../models/userModel.js';
+import { successResponse } from './responseController.js';
 export const getUsers = async (req, res, next)=> {
     try{
 
@@ -26,17 +27,17 @@ export const getUsers = async (req, res, next)=> {
         const count = await User.find(filter).countDocuments();
         if(!User) throw createError(404,'user no found');
 
-        res.status(200).json({
-            message:'users were returned',
-            
-            users,
+        return successResponse(res,{
+            statusCode : 200,
+            message : 'users were returned successfully',
+            payload: {  users,
             pagination :{
                 totalPages: Math.ceil(count/limit),
                 currentPage: page,
                 previousePage: page - 1 > 0 ? page-1 : null,
                 nextPage : page + 1 <= Math.ceil(count/limit)? page + 1 : null,
-            }
-
+            },
+        },
         });
     } catch(error) {
         next(error)
